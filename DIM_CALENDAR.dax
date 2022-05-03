@@ -1,0 +1,43 @@
+DIM_CALENDAR = 
+
+
+VAR MinDate_Facts = MINX ( { MIN ( FACT_SALES[OrderDate] ), MIN ( FACT_SALES[ShippingDate] ) /* ,MIN ( If you have more facts tables, add here  ) */ },[Value] ) 
+VAR MaxDate_Facts = MAXX ( { MAX ( FACT_SALES[OrderDate] ), MAX ( FACT_SALES[ShippingDate] ) /* ,MAX ( If you have more facts tables, add here  ) */  },[Value] )
+
+VAR DIM_DATE = 
+GENERATE( 
+    CALENDAR ( 
+        DATE ( YEAR ( MinDate_Facts ),01,01 ),
+        DATE ( YEAR ( MaxDate_Facts ) ,12,31 ) ),
+    VAR Date_Column = [Date]
+    VAR Month_Number = MONTH ( Date_Column )
+    VAR MonthName = FORMAT ( Date_Column,"MMM" )
+    VAR QuarterNumber = INT ( FORMAT ( Date_Column,"q" ) )
+    VAR Quarter_Text = CONCATENATE ( "Q", QuarterNumber )
+    VAR Year_Number = YEAR ( Date_Column )
+    VAR OrderYearQuarter = Year_Number * 100 + QuarterNumber
+    VAR YearQuarter =  Quarter_Text & "-" &Year_Number
+    VAR YearMonth = FORMAT(  Date_Column ,"YYYY-mmm" )
+    VAR OrderYearMonth = Year_Number * 100 + Month_Number
+    VAR Is_BeforeToday = Date_Column <= TODAY()
+    VAR Is_AfterToday = Date_Column > TODAY()
+    VAR Date_with_Data = Date_Column <= MaxDate_Facts
+    RETURN
+    ROW ( 
+        "Month",Month_Number,
+        "Month Name",MonthName,
+        "Quarter Number", QuarterNumber,
+        "Quarter", Quarter_Text,
+        "Year-Quarter",YearQuarter,
+        "Order Year Quarter",OrderYearQuarter,
+        "Year",Year_Number,
+        "Year-Month", YearMonth,
+        "Order Year Month",OrderYearMonth,
+        "Is Before Today",Is_BeforeToday,
+        "Is After Today", Is_AfterToday,
+        "DateWithData",Date_with_Data
+
+    )
+)
+RETURN
+DIM_DATE
