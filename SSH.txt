@@ -1,0 +1,9 @@
+1 - Gerar a Chave SSH com ssh-keygen e colocar o Passphrase
+2 - Copiar a chave no local Salvo e adicionar no Github
+3 - Rodar comando eval "$(ssh-agent -s)" para aparecer o Agent pid ---
+4 - Rodar comando ssh-add no id_25519 ( tomar cuidado na pasta que voce esta )
+5 - Pronto agora so clonar ou push para o Github.
+passphrase
+
+811881
+
