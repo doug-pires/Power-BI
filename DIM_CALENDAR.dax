@@ -21,7 +21,8 @@ GENERATE(
     VAR OrderYearMonth = Year_Number * 100 + Month_Number
     VAR Is_BeforeToday = Date_Column <= TODAY()
     VAR Is_AfterToday = Date_Column > TODAY()
-    VAR Date_with_Data = Date_Column <= MaxDate_Facts
+    VAR Date_with_Data = Date_Column <= MaxDate_Facts,
+    VAR Testing = 1
     RETURN
     ROW ( 
         "Month",Month_Number,
