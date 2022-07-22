@@ -1,13 +1,3 @@
-// UTC Germany
-"2" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
-
-// UTC Portugal
-"1" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
-
-// UTC Poland
-"3" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
-
-// Last_Refresh
 let
   Source = 
     let
