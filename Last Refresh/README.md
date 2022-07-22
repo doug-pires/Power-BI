@@ -6,7 +6,8 @@
 ## Third
 * Upload the table to your model and create the measures to inform the Last Refresh, like I did in the following [DAX Measure](Last Refresh/DAX Last Refresh UTC.dax). 
 Done!
-*>In Power Query you  can put your parameters as List of Values as well.
-*>You can change the message in your DAX code.
+>In Power Query you  can put your parameters as List of Values as well.
+
+>You can change the message in your DAX code.
 
 **Feel free to update this code as your needs.**
