@@ -1,3 +1,6 @@
+
+
+
 // Refresh Date
 Text.Start ( Text.From (  DateTimeZone.UtcNow() - #duration ( 0,3,0,0) ,"pt-br"  ), 16 )
 
