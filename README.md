@@ -1,2 +1,3 @@
 # Power-BI
-Repositório para manter códigos em DAX ou M para uso em projetos.
+
+Repo to keep useful and helpful codes for Power BI Development.
