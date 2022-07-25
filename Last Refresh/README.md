@@ -10,4 +10,4 @@ Done!
 
 >You can change the message in your DAX code.
 
-**Feel free to update this code as your needs.**
+**Feel free to update this code as per your business needs.**
