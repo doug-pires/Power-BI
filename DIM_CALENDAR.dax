@@ -22,6 +22,12 @@ GENERATE(
     VAR Is_BeforeToday = Date_Column <= TODAY()
     VAR Is_AfterToday = Date_Column > TODAY()
     VAR Date_with_Data = AND ( Date_Column >= MinDate_Facts , Date_Column <= MaxDate_Facts )
+    VAR ISOWeekNumber = WEEKNUM ( Date_Column, 21 )
+    VAR ISOYear = YEAR ( Date_Column + 26 - ISOWeekNumber )
+    VAR WeekText = "CW" & FORMAT ( ISOWeekNumber, "00" )
+    VAR YearWeekText =
+            Year_Number & "/"
+                & FORMAT ( WEEKNUM ( Date_Column, 21 ), "00" )
     RETURN
     ROW ( 
         "Month",Month_Number,
@@ -35,7 +41,11 @@ GENERATE(
         "Order Year Month",OrderYearMonth,
         "Is Before Today",Is_BeforeToday,
         "Is After Today", Is_AfterToday,
-        "DateWithData",Date_with_Data
+        "DateWithData",Date_with_Data,
+        "ISO Week Number", ISOWeekNumber,
+        "Week Text", WeekText,
+        "ISO Year", ISOYear,
+        "Year Week Text", YearWeekText
 
     )
 )
