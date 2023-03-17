@@ -56,8 +56,6 @@ let
     #"Removed Other Columns" = Table.SelectColumns(
         #"Changed Type with Locale", {"LastRefresh", "UTC", "Time", "Period", "Index"}
     ),
-    #"Changed Type" = Table.TransformColumnTypes(
-        #"Removed Other Columns", {{"UTC", type text}, {"Period", type text}}
-    )
+    Changed_Type = Table.TransformColumnTypes(#"Removed Other Columns", {{"UTC", type text}, {"Period", type text}})
 in
-    #"Changed Type"
+    Changed_Type
