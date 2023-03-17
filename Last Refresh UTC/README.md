@@ -1,5 +1,5 @@
 
-# Feel free to update this code as per your business needs.
+# Feel free to update the code as per your business needs.
 > Code and PBIX File available
 
 ## PBIX File
