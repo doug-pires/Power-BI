@@ -1,5 +1,5 @@
 ## Code
-Available for copy and past
+Available for copy and paste
 
 ## PBIX File
 Available to download it and copy from the Power Query and paste in yours
