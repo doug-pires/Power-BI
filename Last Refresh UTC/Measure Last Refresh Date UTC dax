@@ -1,0 +1,10 @@
+
+LastRefresh_Date = 
+// Get the Date 
+VAR TableLast = ALLNOBLANKROW ( 'Last Refresh' )
+
+VAR GetDate = MAXX (TableLast, 'Last Refresh'[LastRefresh] )
+VAR LastRefresh = CONCATENATEX ( TableLast,'Last Refresh'[UTC] & ": " & 'Last Refresh'[Time], " / " )
+VAR Msg = "Last Refresh: " & GetDate
+RETURN
+Msg

@@ -1,0 +1,14 @@
+LastRefreshTime_UTC = 
+// Get the Time for different UTC
+
+VAR TableLast = ALLNOBLANKROW ( 'Last Refresh' )
+VAR GetDate =
+    MAXX ( TableLast, 'Last Refresh'[LastRefresh] )
+VAR LastRefresh =
+    CONCATENATEX (
+        TableLast,
+        'Last Refresh'[UTC] & ": " & 'Last Refresh'[Time] & 'Last Refresh'[Period],
+        " — ", 'Last Refresh'[UTCNumber],ASC 
+    )
+RETURN
+    LastRefresh
