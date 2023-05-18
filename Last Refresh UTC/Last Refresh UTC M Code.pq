@@ -51,11 +51,10 @@ let
     #"Extracted Text Before Delimiter" = Table.TransformColumns(
         #"Remove Time", {{"Time", each Text.BeforeDelimiter(_, ":", 1), type text}}
     ),
-    #"Added Index" = Table.AddIndexColumn(#"Extracted Text Before Delimiter", "Index", 1, 1, Int64.Type),
-    #"Changed Type with Locale" = Table.TransformColumnTypes(#"Added Index", {{"LastRefresh", type date}}, "en-US"),
+    #"Changed Type with Locale" = Table.TransformColumnTypes(#"Extracted Text Before Delimiter", {{"LastRefresh", type date}}, "en-US"),
     #"Removed Other Columns" = Table.SelectColumns(
-        #"Changed Type with Locale", {"LastRefresh", "UTC", "Time", "Period", "Index"}
+        #"Changed Type with Locale", {"LastRefresh", "UTC", "Time", "Period","UTCNumber"}
     ),
-    Changed_Type = Table.TransformColumnTypes(#"Removed Other Columns", {{"UTC", type text}, {"Period", type text}})
+    Changed_Type = Table.TransformColumnTypes(#"Removed Other Columns",{{"UTC", type text}, {"Period", type text}, {"UTCNumber", Int64.Type}})
 in
     Changed_Type
