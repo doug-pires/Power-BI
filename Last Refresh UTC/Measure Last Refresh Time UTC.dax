@@ -8,7 +8,7 @@ VAR LastRefresh =
     CONCATENATEX (
         TableLast,
         'Last Refresh'[UTC] & ": " & 'Last Refresh'[Time] & 'Last Refresh'[Period],
-        " — ", 'Last Refresh'[Index],ASC 
+        " — ", 'Last Refresh'[UTCNumber],ASC 
     )
 RETURN
     LastRefresh
